@@ -10,6 +10,9 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///plants.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
+@app.route('/')
+def home():
+    return "Welcome to the Plant API!"
 
 migrate = Migrate(app, db)
 db.init_app(app)
